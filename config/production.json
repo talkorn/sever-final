@@ -1,0 +1,6 @@
+{
+  "dbConfig": {
+    "url": "mongodb+srv://admin:Aa123456@cluster0.axe2baw.mongodb.net/businesscard"
+  },
+  "jwt": "7bcvbcvyhmg-gjmjg"
+}

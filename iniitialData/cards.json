@@ -4,6 +4,7 @@
     "description": "save the card pls",
     "price": 150,
     "category": "earrings",
+    "colors": "blue",
     "image": {
       "url": "http://localhost:8181/iniitialData/image/yuval.jpg",
       "alt": "yuval the boy"
@@ -14,6 +15,7 @@
     "description": "save the card pls",
     "price": 150,
     "category": "necklaces",
+    "colors": "gold",
     "image": {
       "url": "http://localhost:8181/iniitialData/image/yuval.jpg",
       "alt": "yuval the boy"
@@ -23,6 +25,7 @@
     "title": "amit",
     "description": "save the card pls",
     "category": "necklaces",
+    "colors": "white",
     "price": 89,
     "image": {
       "url": "http://localhost:8181/iniitialData/image/yuval.jpg",

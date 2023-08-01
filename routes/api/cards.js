@@ -6,6 +6,11 @@ const normalizedCard = require("../../model/cardsService/helpers/normalizationCa
 const authMiddleware = require("../../middleware/authMiddleware");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 const generateBizNumber = require("../../model/mongodb/cards/helpers/generateBizNumber");
+const {
+  checkRequestAttempts,
+  recordRequestAttempts,
+  resetRequestAttempts,
+} = require("../../middleware/tooManyRequesr");
 router.post(
   "/",
   authMiddleware,
@@ -14,8 +19,8 @@ router.post(
     try {
       await cardsValidationService.createCardValidation(req.body);
       console.log("req.body", req.body);
-      let normalCard = await normalizedCard(req.body);
-
+      let normalCard = await normalizedCard(req.body, req.userData._id);
+      console.log("normalCard", normalCard, req.userData._id);
       const dataFromMongoose = await cardServiceModel.createCard(normalCard);
       res.json(dataFromMongoose);
     } catch (err) {

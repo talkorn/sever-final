@@ -9,6 +9,7 @@ const {
 const cardSchema = new mongoose.Schema({
   title: DEFAULT_STRING_SCHEMA_REQUIRED,
   category: DEFAULT_STRING_SCHEMA_REQUIRED,
+  colors: DEFAULT_STRING_SCHEMA_REQUIRED,
   description: { ...DEFAULT_STRING_SCHEMA_REQUIRED, maxLength: 1024 },
 
   image: Image,

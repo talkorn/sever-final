@@ -2,7 +2,7 @@ const rateLimit = require("express-rate-limit");
 
 const requestRateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min in milliseconds
-  max: 15,
+  max: 150,
   message:
     "our web has been blocked, you have reached maximum request . Please try again after 24 hours",
   statusCode: 429,

@@ -20,6 +20,13 @@ const cardSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  stock: {
+    type: Number,
+    minLength: 1,
+    maxLength: 10,
+    required: true,
+    trim: true,
+  },
   bizNumber: {
     type: Number,
     minLength: 7,

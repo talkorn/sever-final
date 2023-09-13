@@ -34,6 +34,24 @@ const createIsBusinessValidation = (isBusiness) => {
   }
   throw new Error("validator undefind");
 };
+const createIsEmailValidation = (isBusiness) => {
+  if (validatorOption === "Joi") {
+    return joiUserValidation.validateEmailSchema(isBusiness);
+  }
+  throw new Error("validator undefind");
+};
+const createPasswordValidation = (isBusiness) => {
+  if (validatorOption === "Joi") {
+    return joiUserValidation.validatePasswordSchema(isBusiness);
+  }
+  throw new Error("validator undefind");
+};
+const createImageValidation = (image) => {
+  if (validatorOption === "Joi") {
+    return joiUserValidation.validateImageSchema(image);
+  }
+  throw new Error("validator undefind");
+};
 
 module.exports = {
   createUserValidation,
@@ -41,4 +59,7 @@ module.exports = {
   createIdValidation,
   createEditValidation,
   createIsBusinessValidation,
+  createIsEmailValidation,
+  createPasswordValidation,
+  createImageValidation,
 };

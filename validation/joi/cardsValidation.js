@@ -5,6 +5,7 @@ const createCardSchema = Joi.object({
   category: Joi.string().min(1).max(256).required(),
   colors: Joi.string().min(1).max(256).required(),
   price: Joi.number().min(1).max(999999999).required(),
+  stock: Joi.number().min(0).max(999999999).required(),
   description: Joi.string().min(2).max(1024).required(),
 
   image: Joi.object().keys({
@@ -26,6 +27,7 @@ const createEditCardSchema = Joi.object({
 
   description: Joi.string().min(2).max(1024).required(),
   price: Joi.number().min(1).max(99999999).required(),
+  stock: Joi.number().min(0).max(99999999).required(),
 
   image: Joi.object().keys({
     url: Joi.string().regex(

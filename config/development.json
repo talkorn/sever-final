@@ -1,6 +1,6 @@
 {
   "dbConfig": {
-    "url": "mongodb://127.0.0.1:27017/businesscard"
+    "url": "mongodb://127.0.0.1:27017/jewelry"
   },
   "jwt": "7bcvbcvbxxc dfrrrt5trgf"
 }

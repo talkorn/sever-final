@@ -70,7 +70,7 @@ app.use(requestRateLimiter);
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 initialData();
 
 app.use("/", indexRouter);

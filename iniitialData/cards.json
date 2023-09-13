@@ -1,34 +1,111 @@
 [
   {
-    "title": "tal",
-    "description": "save the card pls",
-    "price": 150,
+    "title": "Pink earrings",
+    "description": "Elevate your elegance with our stunning pink earrings. Crafted with precision and adorned with delicate pink gemstones, these earrings add a touch of feminine sophistication to any outfit. Whether you're attending a special event or simply want to brighten your day, these pink earrings are the perfect accessory. Embrace the beauty of pink and let these earrings complement your style with their charm and grace.",
     "category": "earrings",
-    "colors": "blue",
+    "colors": "Pink",
+    "price": 60,
+    "stock": 67,
     "image": {
-      "url": "http://localhost:8181/iniitialData/image/yuval.jpg",
+      "url": "http://localhost:8181/iniitialData/image/earrings1.jpg",
       "alt": "yuval the boy"
     }
   },
   {
-    "title": "tal",
-    "description": "save the card pls",
-    "price": 150,
+    "title": "Black Necklace",
+    "description": "Experience the perfect blend of sophistication and allure with our striking black and gold necklace. Crafted with meticulous attention to detail, this exquisite piece features gleaming 18-karat gold accents seamlessly intertwined with lustrous black elements. This necklace is a statement of bold elegance, ideal for adding a touch of glamour to any outfit. Elevate your style with the captivating contrast of black and gold, a testament to refined taste and impeccable style",
+    "price": 100,
+    "stock": 23,
     "category": "necklaces",
     "colors": "gold",
     "image": {
-      "url": "http://localhost:8181/iniitialData/image/yuval.jpg",
+      "url": "http://localhost:8181/iniitialData/image/necklace3.jpg",
       "alt": "yuval the boy"
     }
   },
   {
-    "title": "amit",
-    "description": "save the card pls",
+    "title": "Gold Necklace",
+    "description": "Drape yourself in timeless luxury with our exquisite 18-karat gold necklace. Meticulously handcrafted to perfection, this radiant piece is designed to capture hearts and light up any occasion. Elevate your style and make a statement with the enduring elegance of this stunning gold necklace",
+    "price": 150,
+    "stock": 5,
     "category": "necklaces",
-    "colors": "white",
-    "price": 89,
+    "colors": "gold",
     "image": {
-      "url": "http://localhost:8181/iniitialData/image/yuval.jpg",
+      "url": "http://localhost:8181/iniitialData/image/necklace1.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+  {
+    "title": "Trendy Bracelet",
+    "description": "Enhance your youthful style with our trendy string bracelet. Designed with a playful and vibrant spirit, this bracelet features colorful strings and charms that exude a sense of fun and adventure. Whether you're stacking it with other bracelets or wearing it solo, this accessory adds a touch of joy to your look. Embrace the carefree spirit of youth and express yourself with our young and vibrant string bracelet",
+    "price": 138,
+    "stock": 16,
+    "category": "bracelets",
+    "colors": "blue",
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/bracelet3.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+  {
+    "title": "Unique Necklace",
+    "description": "Elevate your look with our radiant yellow necklace, a symbol of vibrance and elegance. Crafted with precision, this exquisite piece showcases the warmth of 18-karat gold, exuding a timeless and cheerful charm. Whether worn on its own or layered for a bolder statement, this yellow necklace is a versatile accessory that brightens any ensemble. Embrace the allure of sunshine with this stunning yellow gold necklace, a perfect addition to your jewelry collection.",
+    "price": 100,
+    "stock": 23,
+    "category": "necklaces",
+    "colors": "Yellow",
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/necklace4.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+  {
+    "title": "Pearls Bracelet",
+    "description": "Elevate your style with our timeless pearl bracelet. Crafted with exquisite freshwater pearls, each pearl's natural luster and iridescence shine brilliantly. This classic and elegant piece is perfect for both formal occasions and everyday wear. Embrace the enduring beauty of pearls and add a touch of sophistication to your ensemble with our pearl bracelet",
+    "price": 99,
+    "stock": 10,
+    "category": "bracelets",
+    "colors": "white",
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/bracelet2.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+
+  {
+    "title": "Beautiful Bracelet",
+    "description": "Discover the perfect blend of boldness and sophistication with our black and silver bracelet. Meticulously designed, this striking piece features sleek black accents intertwined with gleaming silver, creating a stunning contrast that embodies modern elegance. Whether you're dressing up for a special occasion or adding a touch of edge to your daily attire, this bracelet is a versatile accessory that complements your unique style. Embrace the fusion of black and silver, a symbol of refined taste and contemporary fashion",
+    "price": 99,
+    "stock": 10,
+    "category": "bracelets",
+    "colors": "black",
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/bracelet1.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+
+  {
+    "title": "Long Gold Necklace",
+    "description": "Experience the perfect blend of sophistication and allure with our striking black and gold necklace. Crafted with meticulous attention to detail, this exquisite piece features gleaming 18-karat gold accents seamlessly intertwined with lustrous black elements. This necklace is a statement of bold elegance, ideal for adding a touch of glamour to any outfit. Elevate your style with the captivating contrast of black and gold, a testament to refined taste and impeccable style",
+    "price": 180,
+    "stock": 75,
+    "category": "necklaces",
+    "colors": "gold",
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/necklace2.jpg",
+      "alt": "yuval the boy"
+    }
+  },
+  {
+    "title": "Pink earrings",
+    "description": "Embrace the beauty of nature with our exquisite flower earrings. Crafted with meticulous attention to detail, these earrings capture the delicate grace of blooming flowers. Each petal and leaf is intricately designed, making these earrings a true work of art. Whether you're looking to add a touch of nature-inspired elegance to your look or want a unique gift for a loved one, these flower earrings are the perfect choice. Let your style bloom with the timeless beauty of our flower earrings",
+    "category": "earrings",
+    "colors": "Pink",
+    "price": 60,
+    "stock": 56,
+    "image": {
+      "url": "http://localhost:8181/iniitialData/image/earrings2.jpg",
       "alt": "yuval the boy"
     }
   }

@@ -1,6 +1,7 @@
 const express = require("express");
-
+const path = require("path");
 const router = express.Router();
+const multer = require("multer");
 
 const hashService = require("../../utils/hash/hashService");
 const userServiceModel = require("../../model/userService/userService");
@@ -10,6 +11,7 @@ const {
   createIdValidation,
   createEditValidation,
   createIsBusinessValidation,
+  createImageValidation,
 } = require("../../validation/authValidationService");
 const normalizedUser = require("../../model/userService/helpers/normalizationUser");
 const jwt = require("../../utils/token/tokenService");
@@ -23,6 +25,19 @@ const {
   recordFailedLoginAttempt,
   resetLoginAttempts,
 } = require("../../middleware/loginBlokMiddlewear");
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "uploads/");
+    },
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+      const extension = path.extname(file.originalname);
+      cb(null, uniqueSuffix + extension);
+    },
+  }),
+});
 
 router.post("/", async (req, res) => {
   try {
@@ -42,7 +57,6 @@ router.post(
   recordFailedLoginAttempt,
   async (req, res) => {
     try {
-      console.log("here");
       await createLoginValidation(req.body);
       const user = await userServiceModel.getUserByEmail(req.body.email);
 
@@ -63,7 +77,6 @@ router.post(
       resetLoginAttempts(req, res, () => {
         res.json({ token });
       });
-      //res.json({ token });
     } catch (err) {
       res.status(400).json(err);
     }
@@ -73,7 +86,7 @@ router.post(
 router.get(
   "/",
   authMiddleware,
-  permissionsMiddleware(false, true, false),
+  permissionsUserMiddleware(false, true),
   async (req, res) => {
     try {
       const allUsers = await userServiceModel.getAllUsers();
@@ -101,15 +114,45 @@ router.get(
     }
   }
 );
+
+router.post(
+  "/:id/image",
+  authMiddleware,
+  permissionsUserMiddleware(true, true),
+  upload.single("image"),
+  async (req, res) => {
+    try {
+      uploadImage = {};
+      uploadImage.image = req.file.path;
+      await createImageValidation(uploadImage);
+
+      await createIdValidation(req.params.id);
+      const { id } = req.params;
+
+      const imageUrl = req.file.path;
+      await userServiceModel.updateUserImage(id, imageUrl);
+      res.json({ imageUrl });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+);
 router.put(
   "/:id",
   authMiddleware,
   permissionsUserMiddleware(true, true),
+  upload.single("image"), // "image" is the field name in the form data
   async (req, res) => {
     try {
       await createIdValidation(req.params.id);
       await createEditValidation(req.body);
       req.body = normalizedUser(req.body);
+
+      if (req.file) {
+        const imageUrl = req.file.path;
+        req.body.image = { url: imageUrl, alt: "Profile Image" };
+      }
+
       const updateUser = await userServiceModel.editUser(
         req.params.id,
         req.body
@@ -120,7 +163,8 @@ router.put(
     }
   }
 );
-router.patch(
+
+/* router.patch(
   "/:id",
   authMiddleware,
   permissionsUserMiddleware(true, true),
@@ -139,7 +183,7 @@ router.patch(
       res.status(400).json(err);
     }
   }
-);
+); */
 router.delete(
   "/:id",
   authMiddleware,

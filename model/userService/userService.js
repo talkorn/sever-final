@@ -37,8 +37,13 @@ const deletUser = async (id) => {
     return userServiceMongo.deletUser(id);
   }
 };
-
+const updateUserImage = async (id, imageUrl) => {
+  if (dbOption === "mongo") {
+    return userServiceMongo.editUser(id, imageUrl);
+  }
+};
 module.exports = {
+  updateUserImage,
   createUser,
   getUserByEmail,
   getAllUsers,

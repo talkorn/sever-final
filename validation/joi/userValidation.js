@@ -6,6 +6,8 @@ const createUserSchema = Joi.object({
     middle: Joi.string().min(2).max(256).allow(""),
     last: Joi.string().min(2).max(256).required(),
   }),
+  resetToken: Joi.string().min(2), // Stores the reset token
+  resetTokenExpiration: Joi.date(),
   phone: Joi.string()
     .regex(new RegExp(/0[0-9]{1,2}\-?\s?[0-9]{3}\s?[0-9]{4}/))
     .required(),
@@ -56,6 +58,9 @@ const editUserSchema = Joi.object({
     middle: Joi.string().min(2).max(256).allow(""),
     last: Joi.string().min(2).max(256).required(),
   }),
+  imageFile: Joi.string().min(1).max(256).allow(""),
+  resetToken: Joi.string().min(2),
+  resetTokenExpiration: Joi.date(),
   phone: Joi.string()
     .regex(new RegExp(/0[0-9]{1,2}\-?\s?[0-9]{3}\s?[0-9]{4}/))
     .required(),
@@ -64,13 +69,6 @@ const editUserSchema = Joi.object({
       new RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)
     )
     .required(),
-  web: Joi.string()
-    .regex(
-      new RegExp(
-        /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
-      )
-    )
-    .allow(""),
   image: Joi.object().keys({
     url: Joi.string().regex(
       new RegExp(
@@ -103,10 +101,37 @@ const validateUserSchema = (userInput) => {
 const idSchema = Joi.object({
   id: Joi.string().hex().length(24),
 });
+
+const imageSchema = Joi.object().min(0).max(255);
+const emailSchema = Joi.object({
+  email: Joi.string()
+    .regex(
+      new RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)
+    )
+    .required(),
+});
+const passwordSchema = Joi.object({
+  password: Joi.string()
+    .required()
+    .regex(
+      new RegExp(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      )
+    ),
+});
 const isBusinessSchema = Joi.object({ isBusiness: Joi.boolean().required() });
 
 const validateIdSchema = (id) => {
   return idSchema.validateAsync({ id });
+};
+const validateEmailSchema = (email) => {
+  return emailSchema.validateAsync({ email });
+};
+const validatePasswordSchema = (password) => {
+  return passwordSchema.validateAsync({ password });
+};
+const validateImageSchema = (image) => {
+  return imageSchema.validateAsync({ image });
 };
 const validateisBusinessSchema = (isbusiness) => {
   return isBusinessSchema.validateAsync(isbusiness);
@@ -116,4 +141,7 @@ module.exports = {
   validateIdSchema,
   validateEditSchema,
   validateisBusinessSchema,
+  validateEmailSchema,
+  validateImageSchema,
+  validatePasswordSchema,
 };

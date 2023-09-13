@@ -10,6 +10,7 @@ const {
 
 const userSchema = new mongoose.Schema({
   name: Name,
+  imageFile: { type: String },
   phone: {
     type: String,
     required: true,
@@ -32,7 +33,8 @@ const userSchema = new mongoose.Schema({
   },
   image: Image,
   address: Address,
-
+  resetToken: { type: String, minLength: 2 }, // Stores the reset token
+  resetTokenExpiration: { type: Date },
   isAdmin: { type: Boolean, default: false },
   isBusiness: { type: Boolean, default: false },
   createdAt: {

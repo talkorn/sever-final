@@ -1,6 +1,6 @@
-# Business Cards Node.js Project
+# Tals Jewelry Node.js Project
 
-This is a Node.js project for managing business cards. It provides RESTful APIs using Express.js framework and utilizes various libraries such as bcryptjs, joi, jsonwebtoken, config, morgan, cors, chalk, and mongoose.
+This is a Node.js project for managing Jewelry online shop. It provides RESTful APIs using Express.js framework and utilizes various libraries such as bcryptjs, joi, jsonwebtoken, config, morgan, cors, chalk, and mongoose.
 
 ## Getting Started
 
@@ -52,7 +52,7 @@ The following API endpoints are available:
 POST api/users
 
 request:
-name:{first,last},phone,email,password,address:{country,city,street,houseNumber},biz
+name:{first,last},phone,email,password,address:{country,city,street,houseNumber}
 
 allow:
 name{middle},address:{state,zip}image:{url,alt},web
@@ -82,30 +82,28 @@ You will need to provide a token to get an answer from this api
 
 \*\* must be registered as admin or registred user
 
+#### - Upload a user Image by ID.
+
+POST api/users/:id/image
+
+You will need to provide a token to get an answer from this api
+
+\*\* must be registered as admin or registred user
+request:image.
+
 #### - Update a user by ID.
 
 PUT api/users/:id
 
 You will need to provide a token to get an answer from this api
 
-\*\* must be registred user
+\*\* must be registred user or admin
 
 request:
 name:{first,last},phone,email,address:{country,city,street,houseNumber},biz
 
 allow:
 name{middle},address:{state,zip}image:{url,alt},web
-
-#### - Update the "isBusiness" field of a user by ID.
-
-PATCH api/users/:id
-
-You will need to provide a token to get an answer from this api
-
-\*\* must be registred user
-
-request:
-isBusiness
 
 #### - Delete a user by ID.
 
@@ -123,12 +121,12 @@ POST /api/cards
 
 You will need to provide a token to get an answer from this api
 
-\*\* must be registered as business
+\*\* must be registered as business or Admin
 
 request:
-title,subTitle,description, address:{country,city, street,houseNumber}, phone, email
+title,category,description, phone, email,price,stock,color
 
-allow: address:{state, zipCode}, web ,image{url,alt}
+allow:image{url,alt}
 
 #### - Get all cards.
 
@@ -152,12 +150,12 @@ PUT /api/cards/:id
 
 You will need to provide a token to get an answer from this api
 
-\*\* must be registred created user
+\*\* must be registred created user admin
 
 request:
-title,subTitle,description, address:{country,city, street,houseNumber}, phone, email url, alt
+title,category,description, phone, email,price,stock,color
 
-allow: address:{state, zipCode}, web ,image{url,alt}
+allow:image{url,alt}
 
 #### - Update the "likes" field of a card by ID.
 

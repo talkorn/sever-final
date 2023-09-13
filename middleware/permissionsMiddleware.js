@@ -10,7 +10,7 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
     if (!cardData) {
       return res.status(400).json({ msg: "card not found" });
     }
-   
+
     if (cardData.user_id == iduser) {
       next();
     } else {
@@ -20,7 +20,6 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
     res.status(400).json(err);
   }
 };
-
 
 const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
   return (req, res, next) => {
@@ -33,9 +32,8 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
     }
-   
+
     if (isBizOwner === true) {
-   
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }
     res.status(401).json({ msg: "you are not allowed" });
